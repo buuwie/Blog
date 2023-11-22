@@ -1,10 +1,11 @@
-﻿@model Blog.Models.ApplicationUser
+﻿
 @using Microsoft.AspNetCore.Identity;
 @inject UserManager<ApplicationUser> _userManager;
 @{
     var loggedInUser = new ApplicationUser();
     loggedInUser = _userManager.Users?.FirstOrDefault(x => x.UserName == User.Identity!.Name);
 }
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +27,7 @@
 
     <!-- Custom styles for this template-->
     <link href="~/dashboard/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
 
 </head>
 
@@ -187,6 +189,8 @@
     <!-- Page level custom scripts -->
     <script src="~/dashboard/js/demo/chart-area-demo.js"></script>
     <script src="~/dashboard/js/demo/chart-pie-demo.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script>let table = new DataTable('#myTable');</script>
     @await RenderSectionAsync("Scripts", required: false)
     @await Component.InvokeAsync("Notyf")
 </body>

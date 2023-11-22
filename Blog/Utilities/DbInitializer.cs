@@ -39,7 +39,7 @@ namespace Blog.Utilities
                 _userManager.AddToRoleAsync(appUser, WebsiteRoles.WebsiteAdmin).GetAwaiter().GetResult();
             }
 
-            var listOfPages = new List<Page>()
+            /*var listOfPages = new List<Page>()
             {
                 new Page()
                 {
@@ -59,7 +59,7 @@ namespace Blog.Utilities
             };
 
             _context.Pages.AddRange(listOfPages);
-            _context.SaveChanges();
+            _context.SaveChanges();*/
         }
     }
 }
