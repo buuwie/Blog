@@ -53,7 +53,7 @@ namespace Blog.Areas.Admin.Controllers
             var existingUser = await _userManager.FindByIdAsync(id);
             if (existingUser == null)
             {
-                _notification.Error("User does not exsits");
+                _notification.Error("User does not exist");
                 return View();
             }
             var vm = new ResetPasswordVM()
@@ -81,6 +81,10 @@ namespace Blog.Areas.Admin.Controllers
             {
                 _notification.Success("Password resets successfully");
                 return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                _notification.Error($"Failed to reset password: {result}");
             }
             return View(vm);
         }
@@ -180,6 +184,12 @@ namespace Blog.Areas.Admin.Controllers
         public IActionResult AccessDenied()
         {
             return View();
+        }
+
+        [Authorize]
+        public IActionResult ReturnHome()
+        {
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
     }
 }

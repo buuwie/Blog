@@ -24,13 +24,13 @@ namespace Blog.Utilities
             {
                 _roleManager.CreateAsync(new IdentityRole(WebsiteRoles.WebsiteAdmin)).GetAwaiter().GetResult();
                 _roleManager.CreateAsync(new IdentityRole(WebsiteRoles.WebsiteAuthor)).GetAwaiter().GetResult();
-                _userManager.CreateAsync(new ApplicationUser()
+                /*_userManager.CreateAsync(new ApplicationUser()
                 {
                     UserName = "admin@gmail.com",
                     Email = "admin@gmail.com",
                     FirstName = "Super",
                     LastName = "Admin"
-                },"Admin@0011").Wait();
+                },"Admin@0011").Wait();*/
             }
 
             var appUser = _context.ApplicationUsers.FirstOrDefault(x => x.Email == "admin@gmail.com");

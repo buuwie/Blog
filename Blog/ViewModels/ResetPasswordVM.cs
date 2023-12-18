@@ -10,6 +10,6 @@ namespace Blog.ViewModels
         public string? NewPassword { get; set; }
         [Compare(nameof(NewPassword))]
         [Required]
-        public string? ConfirmPasswor { get; set; }
+        public string? ConfirmPassword { get; set; }
     }
 }

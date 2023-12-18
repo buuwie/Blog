@@ -66,7 +66,6 @@ namespace Blog.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid) { return View(vm); }
 
-            //get logged in user id
             var loggedInUser = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName == User.Identity!.Name);
 
             var post = new Post();
